@@ -16,7 +16,7 @@
         return pg_fetch_all($result) ;
     }
 
-    function deleteAssurance($id){
+    function supprimerAssurance($id){
         global $connexion;
         $sql = "Delete from assurance where id=$id";
         echo $sql;
@@ -24,11 +24,18 @@
     }
     
 
-    function editAssurance($id, $montant, $description, $bonus){
+    function updateAssurance($id, $montant, $description, $bonus){
         global $connexion;
         $sql ="UPDATE  assurance set montant =$montant, description = '$description', bonus=$bonus
             where id = $id";
         pg_query($connexion,$sql);
+    }
+
+    function getAssuranceById($id){
+        global $connexion;
+        $sql = "Select * from assurance where id = ".$id;
+        $result = pg_query($connexion,$sql);
+        return pg_fetch_all($result)[0] ;
     }
 
 

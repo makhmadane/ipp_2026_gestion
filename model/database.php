@@ -12,7 +12,7 @@
     if(!$connexion){
         echo "Erreur de connexion";
     }else{
-    echo "succes";
+     //echo "succes";
     }
 
 
